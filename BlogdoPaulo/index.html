@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Paulo Henrique Milanez Motta | Portfólio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="./estilo.css">
+</head>
+
+<body>
+
+ <header class="perfil">
+
+  <!-- FOTO -->
+  <img src="images/perfil.png" alt="Foto Paulo Motta">
+
+  <!-- INFORMAÇÕES -->
+  <div class="info">
+
+    <h1>Paulo Motta</h1>
+
+    <p class="cargo">
+      Analista de Suporte
+    </p>
+
+    </div>
+
+  </div>
+
+</header>
+
+  </header>
+
+  <main>
+
+    <section>
+
+      <h2>Sobre mim</h2>
+
+      <p>
+        Sou Analista de Suporte com experiência em Administração Pública,
+        Folha de Pagamento, eSocial, SIOPE e iniciante em Programação Front-End.
+      </p>
+
+      <p class="destaque">
+        Atualmente estudo HTML, CSS e JavaScript para desenvolver aplicações
+        modernas e responsivas.
+      </p>
+
+    </section>
+
+    <section class="skills">
+
+      <h2>O que estou aprendendo</h2>
+
+      <ul class="lista-skills"></ul>
+
+      <form class="form-skill">
+
+        <input
+          class="input-skill"
+          id="nova-skill"
+          type="text"
+          placeholder="Digite uma nova habilidade"
+          required>
+
+        <button type="submit">
+          Adicionar
+        </button>
+
+      </form>
+
+    </section>
+
+    <section>
+        <h2>Meus projetos</h2>
+        <div class="projetos"></div>
+      </section>
+
+
+    </section>
+
+    <section>
+
+      <h2>Vamos conversar?</h2>
+
+      <p>
+        Caso queira conhecer mais sobre meu trabalho ou entrar em contato,
+        utilize um dos canais abaixo.
+      </p>
+
+      <div class="redes-contato">
+
+        <a href="https://github.com/PauloMotta1993" target="_blank">
+
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            width="22">
+
+          GitHub
+
+        </a>
+
+        <a href="https://www.linkedin.com/in/paulo-henrique-milanez-motta-42642235/"
+          target="_blank">
+
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+            width="22">
+
+          LinkedIn
+
+        </a>
+
+      </div>
+
+      <br>
+
+      <button class="btn-mensagem">
+        Enviar mensagem
+      </button>
+
+      <form class="formulario-contato escondido">
+
+        <label>Nome</label>
+
+        <input
+          type="text"
+          class="input-nome"
+          required>
+
+        <label>E-mail</label>
+
+        <input
+          type="email"
+          class="input-email"
+          required>
+
+        <label>Mensagem</label>
+
+        <textarea
+          class="input-mensagem"
+          rows="5"
+          required></textarea>
+
+        <button type="submit">
+
+          Enviar
+
+        </button>
+
+      </form>
+
+      <p class="feedback"></p>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <p>
+      © 2026 Paulo Henrique Milanez Motta • Desenvolvido com HTML, CSS e JavaScript.
+    </p>
+
+  </footer>
+
+  <script src="./scripts/formulario.js"></script>
+  <script src="./scripts/skills.js"></script>
+  <script src="./scripts/github-api.js"></script>
+
+</body>
+
+</html>
