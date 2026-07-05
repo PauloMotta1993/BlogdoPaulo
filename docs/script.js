@@ -49,7 +49,7 @@ const carregarProjetos = async () => {
   try {
 
     const resposta = await fetch(
-      `https://api.github.com/users/${usuarioGithub}/repos?sort=updated&per_page=9`
+      `https://paulomotta1993.github.io/BlogdoPaulo/`
     );
 
     if (!resposta.ok) {
