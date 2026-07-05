@@ -40,38 +40,51 @@ const gradientes = ['projeto-1', 'projeto-2', 'projeto-3'];
 
 const carregarProjetos = async () => {
   // loading
-  containerProjetos.innerHTML = '<p>Carregando projeto...</p>';
+  containerProjetos.innerHTML = '<p>Carregando projetos...</p>';
 
   try {
-    // Busca DIRETAMENTE apenas o repositório "bethacode"
-    const resposta = await fetch(
+    // Busca DIRETAMENTE apenas os dois repositórios desejados
+    const respostaBetha = await fetch(
       `https://api.github.com/repos/${usuarioGithub}/bethacode`
     );
-    
-    // Se der erro (ex: nome do repo estiver incorreto), interrompe o fluxo
-    if (!resposta.ok) {
-      throw new Error('Erro ao buscar o repositório: ' + resposta.status);
+    const respostaBlog = await fetch(
+      `https://api.github.com/repos/${usuarioGithub}/BlogdoPaulo`
+    );
+
+    // Se qualquer um dos dois der erro, interrompe o fluxo
+    if (!respostaBetha.ok || !respostaBlog.ok) {
+      throw new Error('Erro ao buscar os repositórios');
     }
 
-    const repo = await resposta.json();
+    const repoBetha = await respostaBetha.json();
+    const repoBlog = await respostaBlog.json();
     
-    // Como é apenas um projeto, usamos o primeiro gradiente da lista (índice 0)
-    const gradiente = gradientes[0];
-
-    // Cria o HTML apenas para o projeto específico, sem precisar usar map()
-    const html = `
+    // Cria o HTML para o primeiro projeto (bethacode) usando o primeiro gradiente
+    const htmlBetha = `
       <article>
-        <div class="projeto-imagem ${gradiente}"></div>
-        <h3>${repo.name}</h3>
-        <p>${repo.description || 'Repositório sem descrição.'}</p>
-        <a href="${repo.html_url}" target="_blank">Ver no GitHub</a>
+        <div class="projeto-imagem ${gradientes[0]}"></div>
+        <h3>${repoBetha.name}</h3>
+        <p>${repoBetha.description || 'Curso de Programação'}</p>
+        <a href="${repoBetha.html_url}" target="_blank">Ver no GitHub</a>
       </article>
     `;
 
-    containerProjetos.innerHTML = html;
+    // Cria o HTML para o segundo projeto (BlogdoPaulo) usando o segundo gradiente
+    const htmlBlog = `
+      <article>
+        <div class="projeto-imagem ${gradientes[1]}"></div>
+        <h3>${repoBlog.name}</h3>
+        <p>${repoBlog.description || 'Projeto Website Blog do Paulo'}</p>
+        <a href="${repoBlog.html_url}" target="_blank">Ver no GitHub</a>
+      </article>
+    `;
+
+    // Junta os dois HTMLs e coloca no container
+    containerProjetos.innerHTML = htmlBetha + htmlBlog;
+
   } catch (erro) {
-    console.error("Erro ao carregar o projeto:", erro);
-    containerProjetos.innerHTML = '<p>Não foi possível encontrar o projeto especificado.</p>';
+    console.error("Erro ao carregar os projetos:", erro);
+    containerProjetos.innerHTML = '<p>Não foi possível encontrar os projetos especificados.</p>';
   }
 };
 
